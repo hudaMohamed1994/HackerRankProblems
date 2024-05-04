@@ -1,10 +1,9 @@
-class HackerRaank {
+package com.example.hackerrankproblems
 
-
+class HackerRank {
     fun sortString(str: String): String {
         return str.toCharArray().sorted().joinToString("")
     }
-
 
     fun isAnagram(str1: String, str2: String): Boolean {
         // If the lengths of the strings are different, they cannot be anagrams
@@ -28,6 +27,7 @@ class HackerRaank {
         // Check if both maps are equal
         return charFreqMap1 == charFreqMap2
     }
+
     fun stringAnagram(dictionary: Array<String>, query: Array<String>): Array<Int> {
         val anagramCountMap = HashMap<String, Int>()
 
@@ -43,26 +43,28 @@ class HackerRaank {
         return query.map { anagramCountMap[it] ?: 0 }.toTypedArray()
     }
 
-    fun main(args: Array<String>) {
-        val dictionaryCount = readLine()!!.trim().toInt()
 
-        val dictionary = Array<String>(dictionaryCount, { "" })
-        for (i in 0 until dictionaryCount) {
-            val dictionaryItem = readLine()!!
-            dictionary[i] = dictionaryItem
-        }
-
-        val queryCount = readLine()!!.trim().toInt()
-
-        val query = Array<String>(queryCount, { "" })
-        for (i in 0 until queryCount) {
-            val queryItem = readLine()!!
-            query[i] = queryItem
-        }
-
-        val result = stringAnagram(dictionary, query)
-
-        println(result.joinToString("\n"))
-    }
 }
 
+fun main(args: Array<String>) {
+    val dictionaryCount = readLine()!!.trim().toInt()
+
+    val dictionary = Array<String>(dictionaryCount, { "" })
+    for (i in 0 until dictionaryCount) {
+        val dictionaryItem = readLine()!!
+        dictionary[i] = dictionaryItem
+    }
+
+    val queryCount = readLine()!!.trim().toInt()
+
+    val query = Array<String>(queryCount, { "" })
+    for (i in 0 until queryCount) {
+        val queryItem = readLine()!!
+        query[i] = queryItem
+    }
+    val hackerRank = HackerRank()
+
+    val result = hackerRank.stringAnagram(dictionary, query)
+
+    println(result.joinToString("\n"))
+}
